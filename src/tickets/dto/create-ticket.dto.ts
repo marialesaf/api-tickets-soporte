@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { IsInt, IsNotEmpty, IsPositive, IsString } from 'class-validator';
 
 export class CreateTicketDto {
   @IsString()
@@ -11,4 +11,7 @@ export class CreateTicketDto {
 
   @IsInt({ message: 'El ID del usuario creador debe ser un número entero.' })
   usuarioId!: number;
+  @IsInt()
+  @IsPositive({ message: 'El ID del usuario debe ser un número positivo.' })
+  usuarioCreadorId!: number;
 }
